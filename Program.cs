@@ -32,6 +32,10 @@ double func4(double x)
     return f;
 }
 
+var watch = new System.Diagnostics.Stopwatch();
+            
+watch.Start();
+
 var integral1 = AdaptiveQuadrature.integrate(func1, lims1.Item1, lims1.Item2, 0, 1e-13, 99e99);
 Console.WriteLine("{0} {1}", integral1.integral, integral1.error);
 
@@ -44,6 +48,8 @@ Console.WriteLine("{0} {1}", integral3.integral, integral3.error);
 var integral4 = AdaptiveQuadrature.integrate(func4, lims4.Item1, lims4.Item2, 0, 1e-13, 99e99);
 Console.WriteLine("{0} {1}", integral4.integral, integral4.error);
 
+watch.Stop();
+Console.WriteLine("Elapsed {0} ms", watch.ElapsedMilliseconds);
 
 // OUTPUT FROM C#:
 // Integration regions: 112
@@ -55,6 +61,7 @@ Console.WriteLine("{0} {1}", integral4.integral, integral4.error);
 // 26.514805362870966 1.3626203079323724E-09
 // Integration regions: 63
 // -97.0213525566188 7.586931083380932E-12
+// Elapsed 19 ms
 
 // (OUTPUT FROM PYTHON:
 // 219799.2508082828 1.017497627091681e-08
@@ -63,3 +70,4 @@ Console.WriteLine("{0} {1}", integral4.integral, integral4.error);
 // 26.514805364706493 3.936406756110955e-11
 // IntegrationWarning: The occurrence of roundoff error is detected, which prevents the requested tolerance from being achieved.  The error may be underestimated.
 // -97.02135255661904 1.7872725238364328e-11
+// Elapsed 18 ms

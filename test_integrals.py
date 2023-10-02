@@ -1,6 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.integrate import quad
+from time import time
 
 lims1 = (14.9, 4534.453)
 def func1(x):
@@ -29,9 +30,13 @@ def func4(x):
 funcs = [func1, func2, func3, func4]
 lims = [lims1, lims2, lims3, lims4]
 
+start = time()
+
 for func, lim in zip(funcs, lims):
     integral, error = quad(func, *lim, epsrel=1e-13, limit=10000, epsabs=0)
     print(integral, error)
+
+print(f"Elapsed {(time() - start) * 1e3:0.0f} ms")
 
 for func, lim in zip(funcs, lims):
     x = np.linspace(*lim, 500)
