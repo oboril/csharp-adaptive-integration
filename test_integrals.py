@@ -20,10 +20,14 @@ def func3(x):
     f += np.floor((x%23) / 5) * 0.3
     return f
 
+lims4 = (-50, 50)
+def func4(x):
+    f = np.sin(x) * x
+    return f
 
 
-funcs = [func1, func2, func3]
-lims = [lims1, lims2, lims3]
+funcs = [func1, func2, func3, func4]
+lims = [lims1, lims2, lims3, lims4]
 
 for func, lim in zip(funcs, lims):
     integral, error = quad(func, *lim, epsrel=1e-13, limit=10000, epsabs=0)

@@ -179,7 +179,7 @@ namespace NumericalIntegration
                 error += r1.error + r2.error - old_region.error;
             }
             
-            // Console.WriteLine("Integration regions: " + regions.Count.ToString());
+            Console.WriteLine("Integration regions: " + regions.Count.ToString());
 
             // Use the regions to recalculate integral and error to avoid rounding error
             integral = 0;
