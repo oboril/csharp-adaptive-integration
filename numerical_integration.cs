@@ -159,7 +159,7 @@ namespace NumericalIntegration
 
 
             // Check convergence and subdivide region with largest error
-            while (error > epsabs && error / integral > epsrel)
+            while (error > epsabs && error / Math.Abs(integral) > epsrel)
             {
                 IntegrationRegion old_region = regions.Dequeue();
 
