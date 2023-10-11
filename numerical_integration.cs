@@ -248,7 +248,7 @@ namespace NumericalIntegration
                 // Check that the region size is large enough for numerical accuracy
                 if (old_region.b - old_region.a < Math.Max(Math.Abs(old_region.a), Math.Abs(old_region.b)) * 1e-14)
                 {
-                    Console.WriteLine("WARNING: The integration step is smaller that spacing between numbers!");
+                    Console.WriteLine("WARNING: The integration step is smaller than spacing between numbers!");
                     break;
                 }
                 double midpoint = (old_region.a + old_region.b) / 2;
